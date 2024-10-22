@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UMDConnect</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        #loginContainer {
+            max-width: 50%; /* Set your desired maximum percentage width */
+            margin: auto; /* Center the container horizontally */
+        }
+    </style>
+</head>
+<body style="background-color: black;">
+    <div class="tab-pane fade" id="login">
+        <!-- Redirect to the login page -->
+        <script>
+            document.getElementById('login-tab').addEventListener('click', function () {
+                window.location.href = 'LogIn.html';
+            });
+        </script>
+    </div>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src = "/images/favicon-32x32.png" width="30" height="30" class="d-inline-block align-top" alt="">UMDConnect</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" href="/">Home</a>
+                    <a class="nav-link active" aria-current="page" style = "color:maroon;"href="/login">Log In</a>
+                    <a class="nav-link active" aria-current="page" style = "color:maroon;"href="/register">Register</a>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success"style ="background-color:maroon; color:white;" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <h2 style="text-align:center; color:goldenrod;">Log In</h2>
+    <h4 style="text-align: center; color:white;"> Welcome to UMDConnect! </h4>
+
+    <div class="container min-bh-100 d-flex justify-content-center align-items-center" id= "loginContainer">
+        <form class="row g-3" action='/login' method='POST'>
+            <div class="mb-3 col-12">
+                <label for="inputEmail4" style ="color:white;" class="form-label">Email</label>
+                <input type="email" class="form-control" id="inputEmail4" placeholder="yourbusiness@email.com" name=email>
+            </div>
+            <div class="mb-3 col-12">
+                <label for="inputPassword4" style ="color:white;" class="form-label">Password</label>
+                <input type="password" class="form-control" id="inputPassword4" name=password>
+            </div>
+            <div class="col-12 text-center">
+                <button type="submit" style ="background-color:maroon;"class="btn btn-primary">Log In</button>
+            </div>
+            <div class="text-center" style = "color:white;">
+                <p>Don't have an account? <a href="/register" style = "color:goldenrod;">Register</a></p>
+            </div>    
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+    </script>
+</body>
+</html>

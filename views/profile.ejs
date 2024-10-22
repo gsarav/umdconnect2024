@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UMDConnect</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        #loginContainer {
+            max-width: 50%; /* Set your desired maximum percentage width */
+            margin: auto; /* Center the container horizontally */
+        }
+    </style>
+</head>
+<body style="background-color: black;">
+    <div class="tab-pane fade" id="login">
+        <!-- Redirect to the login page -->
+        <script>
+            document.getElementById('login-tab').addEventListener('click', function () {
+                window.location.href = 'LogIn.html';
+            });
+        </script>
+    </div>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src = "/images/favicon-32x32.png" width="30" height="30" class="d-inline-block align-top" alt="">UMDConnect</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" href="Experimenting.html">Home</a>
+                    <a class="nav-link" href="Experimenting.html">Log In/Sign Up</a>
+                    <a class="nav-link active" style="color:maroon;"aria-current="page" href="#">Profile</a>
+
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" style="color:white; background-color: maroon;"type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <h2 style="text-align:center; color:goldenrod;">Profile</h2>
+
+    <div class="container min-bh-100 d-flex justify-content-center align-items-center" id= "loginContainer">
+        <form class="row g-3">
+            <!--put table here-->
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Business Title</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Business Link</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">CrochetCuties</th>
+                    <td>1234 Main St</td>
+                    <td>Offers small crochet keychains, and plushies.</td>
+                    <td>www.crochetcuties.com</td>
+                  </tr>
+                </tbody>
+              </table>
+            <div class="col-12">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="changeInfoCheckBox">
+                    <label class="form-check-label" style="color:white;"for="changeInfoCheckBox">
+                        I want to change my information
+                    </label>
+                </div>
+            </div>
+            <div class="col-12" id="businessTitleConditional">
+                <label for="businessTitle" style="color:white;" class="form-label">Business Title</label>
+                <input type="text" class="form-control" id="businessTitle" placeholder="CrochetCuties">
+            </div>
+            <div class="col-12" id="businessLinkConditional">
+                <label for="businessLink" style="color:white;"class="form-label">Business Link</label>
+                <input type="text" class="form-control" id="businessLink" placeholder="www.crochetcuties.com">
+            </div>
+            <div class="col-12" id="addressConditional">
+                <label for="inputAddress"style="color:white;" class="form-label">Address</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            </div>
+            <div class="mb-3 col-12" id="businessDescriptionConditional">
+                <label for="businessDescriptionTextArea" style="color:white;"class="form-label">Business Description</label>
+                <textarea class="form-control" id="businessDescriptionTextArea" rows="3" placeholder="Offers small crochet keychains, and plushies."></textarea>
+            </div>
+            <div class="col-12">
+                <button type="submit" style ="background-color:maroon; color:white;"class="btn btn-primary">Update Information</button>
+            </div>
+        </form>
+    </div>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Wait for the DOM to be fully loaded
+
+            var changeInfoCheckBox = document.getElementById('changeInfoCheckBox');
+            var addressConditional = document.getElementById('addressConditional');
+            var businessDescriptionConditional = document.getElementById('businessDescriptionConditional');
+            var businessTitleConditional = document.getElementById('businessTitleConditional');
+            var businessLinkConditional = document.getElementById('businessLinkConditional');
+
+            // Check if elements are found
+            if (!changeInfoCheckBox || !addressConditional || !businessDescriptionConditional || !businessTitleConditional) {
+                console.error('One or more elements not found. Check your element IDs.');
+                return;
+            }
+            addressConditional.style.display = 'none';
+            businessDescriptionConditional.style.display = 'none';
+            businessTitleConditional.style.display = 'none';
+            businessLinkConditional.style.display = 'none';
+            changeInfoCheckBox.addEventListener('change', function () {
+                console.log('Checkbox state changed');
+
+                if (!changeInfoCheckBox.checked) {
+                    console.log('Checkbox is unchecked');
+                    addressConditional.style.display = 'none';
+                    businessDescriptionConditional.style.display = 'none';
+                    businessTitleConditional.style.display = 'none';
+                    businessLinkConditional.style.display = 'none';
+                } else {
+                    console.log('Checkbox is checked');
+                    addressConditional.style.display = 'block';
+                    businessDescriptionConditional.style.display = 'block';
+                    businessTitleConditional.style.display = 'block';
+                    businessLinkConditional.style.display = 'block';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
